@@ -1,14 +1,13 @@
 {
   "name": "my-v0-project",
   "version": "0.1.0",
-  "homepage": "https://egeller04.github.io/snapsgemstone/",
- "scripts": {
-  "dev": "next dev",
-  "build": "next build",
-  "export": "next export",
-  "predeploy": "npm run build && npm run export",
-  "deploy": "gh-pages -d out"
-},
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "lint": "next lint",
+    "start": "next start"
+  },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-accordion": "1.2.2",
