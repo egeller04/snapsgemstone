@@ -9,8 +9,7 @@ import "./globals.css"
 
 export const metadata: Metadata = {
   title: "SNAPS - Gemstone Research Team",
-  description: "SNAPS Gemstone undergraduate research team focused on neural networks and brain connectivity",
-  generator: "v0.app",
+  description: "SNAPS Gemstone undergraduate research team studying PACAP delivery and retinal ganglion cell survival after optic nerve injury",
 }
 
 /**
@@ -27,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       </head>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
         <Suspense fallback={null}>

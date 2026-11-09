@@ -1,83 +1,55 @@
-import { Button } from "@/components/ui/button"
-import { ArrowRight, Brain } from "lucide-react"
+import { ArrowDown, ArrowRight, Droplet, Syringe } from "lucide-react"
 import Link from "next/link"
-import { NeuralBackground } from "./neural-background"
-import { NeuralParticles } from "./neural-particles"
+import { Button } from "@/components/ui/button"
 
-/**
- * Hero Section Component
- *
- * Main landing section featuring neural network theming and call-to-action buttons.
- * Includes animated background patterns and responsive design for all screen sizes.
- */
 export function HeroSection() {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 opacity-30">
-        <NeuralBackground nodeCount={60} connectionDistance={120} animationSpeed={0.3} />
-      </div>
-
-      <div className="absolute inset-0 opacity-20">
-        <NeuralParticles particleCount={25} speed={0.8} />
-      </div>
-
-      {/* Static Neural Network Pattern Overlay */}
-      <div className="absolute inset-0 opacity-10">
-        <svg className="w-full h-full" viewBox="0 0 800 600" fill="none">
-          <defs>
-            <pattern id="neural-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-              <circle cx="20" cy="20" r="2" fill="currentColor" className="text-accent animate-pulse-glow" />
-              <circle cx="80" cy="40" r="2" fill="currentColor" className="text-primary animate-pulse-glow" />
-              <circle cx="50" cy="80" r="2" fill="currentColor" className="text-accent animate-pulse-glow" />
-              <line x1="20" y1="20" x2="80" y2="40" stroke="currentColor" strokeWidth="0.5" className="text-primary" />
-              <line x1="80" y1="40" x2="50" y2="80" stroke="currentColor" strokeWidth="0.5" className="text-accent" />
-              <line x1="50" y1="80" x2="20" y2="20" stroke="currentColor" strokeWidth="0.5" className="text-primary" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#neural-pattern)" />
-        </svg>
-      </div>
-
-      {/* Main Content Container */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        <div className="max-w-4xl mx-auto">
-          {/* Brain Icon with Animation */}
-          <div className="flex justify-center mb-6">
-            <Brain className="h-16 w-16 text-accent animate-pulse-glow" /> {/* animate-pulse-glow */}
-          </div>
-
-          {/* Main Heading */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
-            <span className="text-accent">S</span>ynaptic <span className="text-accent">N</span>etwork <span className="text-accent">A</span>nalysis and <span className="text-accent">P</span>athway <span className="text-accent">S</span>cience
-          </h1>
-
-          {/* Subtitle Description */}
-          <p className="text-xl sm:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto text-pretty">
-            We are SNAPS, an undergraduate research team exploring the frontiers of brain connectivity and neural
-            networks to unlock new possibilities in computational neuroscience.
+    <section className="border-b bg-muted/30">
+      <div className="container mx-auto grid items-center gap-12 px-5 pb-16 pt-28 sm:px-8 lg:grid-cols-[1.2fr_1fr] lg:gap-20 lg:pb-24 lg:pt-36">
+        <div>
+          <p className="mb-5 font-mono text-xs font-semibold uppercase tracking-widest text-primary">
+            Team SNAPS · UMD Gemstone Honors
           </p>
+          <h1 className="max-w-3xl text-balance text-5xl font-semibold tracking-tight sm:text-6xl">
+            What if we could protect vision by protecting the retina?
+          </h1>
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+            In glaucoma, damage to the cells that carry visual signals can lead to lasting vision loss.
+            We’re studying neuroprotection: helping those cells survive after injury. Our experiment
+            asks whether PACAP eye drops can protect them as effectively as injections in mice.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button size="lg" asChild>
+              <Link href="/research">See what we’re testing <ArrowRight aria-hidden="true" /></Link>
+            </Button>
+            <Button size="lg" variant="outline" asChild>
+              <Link href="#updates">Team updates <ArrowDown aria-hidden="true" /></Link>
+            </Button>
+          </div>
+        </div>
 
-          {/* Call-to-Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-accent hover:bg-accent text-primary-foreground transition-all duration-300 hover:scale-102"
-              asChild
-            >
-              <Link href="/about" className="flex items-center">
-                Learn More <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-accent text-accent hover:bg-transparent hover:text-accent bg-transparent transition-all duration-300 hover:scale-102 dark:border-accent"
-              asChild
-            >
-              <Link href="/research" className="flex items-center">
-                Our Research <Brain className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
+        <div className="overflow-hidden rounded-3xl border bg-card">
+          <div className="relative grid aspect-[2/1] place-items-center overflow-hidden border-b bg-primary/5">
+            <svg viewBox="0 0 400 200" className="absolute h-full w-full text-primary" fill="none" aria-hidden="true">
+              <ellipse cx="200" cy="100" rx="188" ry="87" stroke="currentColor" opacity=".12" />
+              <path d="M48 100Q200-47 352 100Q200 247 48 100Z" stroke="currentColor" opacity=".5" />
+              <circle cx="200" cy="100" r="56" stroke="currentColor" opacity=".55" />
+              <circle cx="200" cy="100" r="43" stroke="currentColor" strokeDasharray="1 4" opacity=".5" />
+              <circle cx="200" cy="100" r="29" fill="currentColor" opacity=".08" />
+            </svg>
+            <span className="relative font-mono text-sm font-semibold tracking-widest text-primary">PACAP</span>
+          </div>
+          <div className="grid grid-cols-2 divide-x">
+            <div className="p-5">
+              <Droplet className="mb-3 size-5 text-primary" aria-hidden="true" />
+              <p className="font-semibold">Eye drops</p>
+              <p className="text-sm text-muted-foreground">Topical delivery</p>
+            </div>
+            <div className="p-5">
+              <Syringe className="mb-3 size-5 text-primary" aria-hidden="true" />
+              <p className="font-semibold">Injections</p>
+              <p className="text-sm text-muted-foreground">Delivery into the eye</p>
+            </div>
           </div>
         </div>
       </div>

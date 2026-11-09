@@ -107,7 +107,7 @@ export function ContactSection() {
                   <Mail className="h-6 w-6 text-accent mt-1" />
                   <div>
                     <h3 className="font-semibold text-foreground mb-2">Email</h3>
-                    <p className="text-muted-foreground">snapsgemstone@gmail.com</p>
+                    <a className="text-primary underline underline-offset-4" href="mailto:snapsgemstone@gmail.com">snapsgemstone@gmail.com</a>
                     <Badge variant="outline" className="mt-2 text-xs">
                       Primary Contact
                     </Badge>
@@ -138,7 +138,7 @@ export function ContactSection() {
                       <li>• Collaborate with us to accelerate progress</li>
                       <li>• Contributions directly power ongoing experiments</li>
                       <li>• Support opportunities for undergraduate research</li>
-                      <li>• Bring awareness to brain health and neuroscience</li>
+                      <li>• Raise awareness of glaucoma and vision research</li>
                     </ul>
                   </div>
                 </div>

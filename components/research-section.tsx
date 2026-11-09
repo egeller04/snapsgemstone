@@ -1,185 +1,82 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Network, Zap, Database, Microscope, ExternalLink, Calendar } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
 
-/**
- * Research Section Component
- *
- * Showcases current research projects with enhanced visual elements and progress tracking.
- * Features interactive cards with detailed project information and status indicators.
- */
+const studySteps = [
+  {
+    title: "Model optic nerve injury",
+    description: "We use optic nerve crush in mice to study how retinal ganglion cells respond to injury relevant to glaucoma.",
+  },
+  {
+    title: "Compare delivery routes",
+    description: "We compare injured eyes given PACAP drops, injured eyes given PACAP injections, and an injured baseline group. Uninjured fellow eyes provide a reference.",
+  },
+  {
+    title: "Image and count retinal cells",
+    description: "We stain and image dissected retinas to assess cell survival, with a focus on intrinsically photosensitive retinal ganglion cells (ipRGCs).",
+  },
+]
+
 export function ResearchSection() {
-  const researchProjects = [
-    {
-      title: "Neural Network Optimization",
-      description:
-        "Developing novel algorithms to improve the efficiency and accuracy of deep neural networks for brain signal processing and pattern recognition.",
-      icon: Network,
-      status: "Active",
-      progress: 75,
-      startDate: "Jan 2024",
-      tags: ["Deep Learning", "Optimization", "Signal Processing"],
-      publications: 2,
-    },
-    {
-      title: "Brain Connectivity Mapping",
-      description:
-        "Creating comprehensive maps of neural connections using advanced imaging techniques and computational analysis to understand brain network topology.",
-      icon: Microscope,
-      status: "In Progress",
-      progress: 60,
-      startDate: "Mar 2024",
-      tags: ["Neuroimaging", "Graph Theory", "Data Analysis"],
-      publications: 1,
-    },
-    {
-      title: "Real-time Neural Interfaces",
-      description:
-        "Building responsive brain-computer interfaces that can adapt to neural patterns in real-time applications for assistive technologies.",
-      icon: Zap,
-      status: "Planning",
-      progress: 25,
-      startDate: "Sep 2024",
-      tags: ["BCI", "Real-time Systems", "Machine Learning"],
-      publications: 0,
-    },
-    {
-      title: "Neural Data Repository",
-      description:
-        "Establishing a comprehensive database of neural network patterns and connectivity data for research collaboration and open science initiatives.",
-      icon: Database,
-      status: "Active",
-      progress: 85,
-      startDate: "Nov 2023",
-      tags: ["Data Management", "Open Science", "Collaboration"],
-      publications: 3,
-    },
-  ]
-
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case "Active":
-        return "bg-accent text-accent-foreground"
-      case "In Progress":
-        return "bg-primary text-primary-foreground"
-      case "Planning":
-        return "bg-muted text-muted-foreground"
-      default:
-        return "bg-muted text-muted-foreground"
-    }
-  }
-
   return (
-    <section id="research" className="py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-balance">
-            Recent Research Developments
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-            Explore our cutting-edge research projects and discoveries in neural networks and brain connectivity
+    <section className="container mx-auto px-5 py-14 sm:px-8 lg:py-20">
+      <header className="max-w-3xl">
+        <p className="mb-4 font-mono text-xs font-semibold uppercase tracking-widest text-primary">Our research</p>
+        <h1 className="text-balance text-4xl font-semibold tracking-tight sm:text-6xl">
+          PACAP eye drops vs. injections
+        </h1>
+        <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+          Retinal ganglion cells carry visual signals from the eye to the brain. We are testing whether
+          pituitary adenylate cyclase-activating polypeptide (PACAP), a naturally occurring peptide,
+          helps those cells survive after injury and whether topical drops can match delivery by injection.
+        </p>
+      </header>
+
+      <ol className="my-12 grid gap-px overflow-hidden rounded-2xl border bg-border md:grid-cols-3">
+        {studySteps.map((step, index) => (
+          <li key={step.title} className="bg-card p-6">
+            <p className="mb-3 font-mono text-xs font-semibold text-primary">0{index + 1}</p>
+            <h2 className="mb-2 text-lg font-semibold">{step.title}</h2>
+            <p className="leading-relaxed text-muted-foreground">{step.description}</p>
+          </li>
+        ))}
+      </ol>
+
+      <div id="reanalysis" className="grid scroll-mt-24 items-center gap-8 rounded-3xl border bg-muted/30 p-5 sm:p-8 lg:grid-cols-[2fr_3fr] lg:gap-12">
+        <div>
+          <p className="mb-3 font-mono text-xs font-semibold uppercase tracking-widest text-primary">Public data reanalysis</p>
+          <h2 className="text-balance text-3xl font-semibold tracking-tight">What changes after injury?</h2>
+          <p className="mt-4 leading-relaxed text-muted-foreground">
+            In our reanalysis of public retinal data, the fraction of pooled retinal ganglion cells
+            with detectable <i>Adcyap1</i> RNA rose from 4.7% in the sham group to 22.2% at 24 hours
+            after optic nerve crush. <i>Adcyap1</i> is the gene that encodes PACAP.
           </p>
+          <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+            These descriptive proportions summarize pooled cells. The mouse study separately tests whether
+            administering PACAP affects cell survival.
+          </p>
+          <a className="mt-4 inline-block text-sm font-semibold text-primary underline underline-offset-4"
+            href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE241268">
+            Source dataset · Qian et al. (GSE241268)
+          </a>
         </div>
-
-        {/* Research Projects Grid
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
-          {researchProjects.map((project, index) => (
-            <Card
-              key={index}
-              className="group hover:shadow-lg transition-all duration-300 border-border hover:border-accent/50 hover:scale-102"
-            >
-              <CardHeader>
-                <div className="flex items-start justify-between">
-                  <project.icon className="h-12 w-12 text-accent group-hover:scale-110 transition-transform animate-pulse-glow" />
-                  <div className="text-right">
-                    <Badge className={getStatusColor(project.status)}>{project.status}</Badge>
-                    <div className="flex items-center gap-1 mt-2 text-xs text-muted-foreground">
-                      <Calendar className="h-3 w-3" />
-                      {project.startDate}
-                    </div>
-                  </div>
-                </div>
-                <CardTitle className="text-xl text-foreground group-hover:text-accent transition-colors">
-                  {project.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4 text-pretty">{project.description}</p>
-
-                <div className="mb-4">
-                  <div className="flex justify-between text-sm mb-1">
-                    <span className="text-muted-foreground">Progress</span>
-                    <span className="text-accent font-medium">{project.progress}%</span>
-                  </div>
-                  <div className="w-full bg-muted rounded-full h-2">
-                    <div
-                      className="bg-accent h-2 rounded-full transition-all duration-500"
-                      style={{ width: `${project.progress}%` }}
-                    ></div>
-                  </div>
-                </div>  */}
-
-                {/* Project Tags
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, tagIndex) => (
-                    <Badge key={tagIndex} variant="outline" className="text-xs">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-
-                <div className="flex items-center justify-between">
-                  <div className="text-sm text-muted-foreground">
-                    {project.publications} Publication{project.publications !== 1 ? "s" : ""}
-                  </div>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="text-accent hover:text-accent-foreground hover:bg-accent"
-                  >
-                    Learn More <ExternalLink className="ml-1 h-3 w-3" />
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        <div className="bg-card border border-primary/20 rounded-lg p-8 text-center">
-          <h3 className="text-2xl font-bold text-foreground mb-4">Research Impact</h3>
-          <div className="grid md:grid-cols-4 gap-6">
-            <div>
-              <div className="text-3xl font-bold text-accent mb-2">6</div>
-              <div className="text-sm text-muted-foreground">Publications</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-primary mb-2">4</div>
-              <div className="text-sm text-muted-foreground">Active Projects</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-accent mb-2">12</div>
-              <div className="text-sm text-muted-foreground">Collaborations</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-primary mb-2">3</div>
-              <div className="text-sm text-muted-foreground">Awards</div>
-            </div>
-          </div>
-        </div>  */}
-        <div className="mt-16 text-center">
-          <div className="bg-card border border-primary/20 rounded-lg p-8 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-foreground mb-4">Our Research Vision</h3>
-            <p className="text-muted-foreground text-pretty">
-              SNAPS is at the beginning of an exciting journey to explore how neural pathways 
-              shape brain function and contribute to disorders. While our research is just 
-              getting started, our mission is to lay the foundation for discoveries that can 
-              advance treatment, improve outcomes, and spark new possibilities in neuroscience.
-            </p>
-          </div>
-        </div>
+        <figure>
+          <a href="/research/pacap_injury_showcase.svg" aria-label="Open full-size PACAP reanalysis figure">
+            <Image
+              src="/research/pacap_injury_showcase.svg"
+              alt="Detectable Adcyap1 RNA in pooled retinal ganglion cells. Sham 4.7%, 12 hours 13.6%, 24 hours 22.2%, and 48 hours 18.9%."
+              width={960}
+              height={576}
+              className="h-auto w-full rounded-xl bg-white"
+            />
+          </a>
+          <figcaption className="mt-3 text-sm text-muted-foreground">
+            Team SNAPS reanalysis. Open the figure for pooled cell counts.
+          </figcaption>
+        </figure>
       </div>
+      <Link href="/#updates" className="mt-8 inline-block font-semibold text-primary underline underline-offset-4">
+        See team updates
+      </Link>
     </section>
   )
 }

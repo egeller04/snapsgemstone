@@ -15,7 +15,7 @@ export function AboutSection() {
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-balance">About SNAPS & Gemstone</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-            Discover who we are and our commitment to advancing neural network research through collaborative innovation
+            Meet the undergraduate researchers studying how the retina responds to optic nerve injury.
           </p>
         </div>
 
@@ -24,13 +24,11 @@ export function AboutSection() {
           <div>
             <h3 className="text-2xl font-bold text-foreground mb-4">Who We Are</h3>
             <p className="text-muted-foreground mb-6 text-pretty">
-              SNAPS is a dedicated team of undergraduate researchers within the prestigious Gemstone Honors Program at
-              the University of Maryland. We bring together diverse perspectives and expertise to tackle complex
-              challenges in neural network research and brain connectivity analysis.
+              SNAPS is an undergraduate research team in the Gemstone Honors Program at the University of Maryland.
+              We study how the visual system responds to injury and what might help retinal ganglion cells survive.
             </p>
             <p className="text-muted-foreground text-pretty">
-              Our interdisciplinary approach combines computer science, neuroscience, mathematics, and engineering to
-              push the boundaries of what's possible in computational neuroscience research.
+              Our PACAP study combines public data analysis, retinal imaging, and a mouse model of optic nerve injury.
             </p>
 
             <div className="grid grid-cols-2 gap-4 mt-6">
@@ -39,41 +37,20 @@ export function AboutSection() {
                 <div className="text-sm text-muted-foreground">Team Members</div>
               </div>
               <div className="text-center p-4 bg-card rounded-lg border border-primary/20">
-                <div className="text-2xl font-bold text-primary">2</div>
-                <div className="text-sm text-muted-foreground">Years Active</div>
+                <div className="text-2xl font-bold text-primary">3rd</div>
+                <div className="text-sm text-muted-foreground">Year in Gemstone</div>
               </div>
             </div>
           </div>
 
           {/* Visual Element */}
           <div className="relative">
-            <div className="aspect-square bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg flex items-center justify-center relative overflow-hidden">
-              <GraduationCap className="h-24 w-24 text-primary z-10" />
-              <div className="absolute inset-0 opacity-20">
-                <svg className="w-full h-full" viewBox="0 0 200 200" fill="none">
-                  <circle cx="50" cy="50" r="3" fill="currentColor" className="text-accent animate-pulse-glow" />
-                  <circle cx="150" cy="80" r="3" fill="currentColor" className="text-primary animate-pulse-glow" />
-                  <circle cx="100" cy="150" r="3" fill="currentColor" className="text-accent animate-pulse-glow" />
-                  <line
-                    x1="50"
-                    y1="50"
-                    x2="150"
-                    y2="80"
-                    stroke="currentColor"
-                    strokeWidth="1"
-                    className="text-primary"
-                  />
-                  <line
-                    x1="150"
-                    y1="80"
-                    x2="100"
-                    y2="150"
-                    stroke="currentColor"
-                    strokeWidth="1"
-                    className="text-accent"
-                  />
-                </svg>
-              </div>
+            <div className="aspect-square rounded-lg overflow-hidden flex items-center justify-center">
+              <img
+                src="/team.jpg"
+                alt="Team SNAPS group photo"
+                className="object-cover w-full h-full"
+              />
             </div>
           </div>
         </div>
@@ -86,9 +63,7 @@ export function AboutSection() {
               <Target className="h-12 w-12 text-accent mb-4" />
               <h3 className="text-xl font-bold text-foreground mb-3">Our Mission</h3>
               <p className="text-muted-foreground text-pretty">
-                To advance the understanding of neural networks and brain connectivity through innovative research,
-                fostering the next generation of computational neuroscientists and contributing meaningful insights to
-                the scientific community.
+                To explore neural plasticity and axon regeneration in the visual system, advancing understanding of glaucoma and vision restoration while generating insights that drive innovation in neuroscience research.
               </p>
             </CardContent>
           </Card>
@@ -99,9 +74,7 @@ export function AboutSection() {
               <Eye className="h-12 w-12 text-primary mb-4" />
               <h3 className="text-xl font-bold text-foreground mb-3">Our Vision</h3>
               <p className="text-muted-foreground text-pretty">
-                To become a leading undergraduate research team that bridges the gap between theoretical neuroscience
-                and practical applications, creating solutions that benefit both academic research and real-world
-                challenges.
+                To be a pioneering undergraduate research team uncovering the mechanisms of neural plasticity and axon regeneration in the visual system, contributing to advances in glaucoma treatment and vision restoration.
               </p>
             </CardContent>
           </Card>

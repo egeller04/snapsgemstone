@@ -9,7 +9,7 @@
 export const APP_CONFIG = {
   name: "SNAPS",
   fullName: "Snaps Gemstone Research Team",
-  description: "Snaps Gemstone undergraduate research team focused on neural networks and brain connectivity",
+  description: "Snaps Gemstone undergraduate research team studying PACAP delivery and retinal ganglion cell survival after optic nerve injury",
   university: "University of Maryland",
   program: "Gemstone Honors Program",
   location: "College Park, MD 20742",
